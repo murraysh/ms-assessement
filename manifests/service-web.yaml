@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: web-service
 spec:
-  type: LoadBalancer  # Change from NodePort
-  ports:
-    - port: 80
-      targetPort: 80
   selector:
-    app: nginx-web
+    app: web-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer

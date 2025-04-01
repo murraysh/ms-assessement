@@ -1,0 +1,21 @@
+# Use a base image suitable for your backend (Example: Node.js or Python)
+FROM python:3.10
+
+# Set working directory
+WORKDIR /app
+
+# Copy application code
+COPY . .
+
+COPY app.py /app.py
+
+# Install dependencies (Modify based on your tech stack)
+RUN pip install -r requirements.txt
+
+# Expose port 80 for HTTP traffic
+EXPOSE 80
+
+# Start the backend service
+CMD ["python", "app.py"]
+
+COPY index.html /usr/share/nginx/html/index.html
